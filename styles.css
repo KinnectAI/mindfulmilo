@@ -133,6 +133,16 @@ nav ul li a {
     font-weight: 700;
 }
 
+.mobile-waitlist-btn {
+    display: none; /* Hidden by default, shown only on mobile */
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: var(--primary-yellow-dark);
+    border-color: var(--primary-yellow-dark);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-yellow-light) 100%);
@@ -635,6 +645,14 @@ footer {
         display: none;
     }
     
+    .mobile-waitlist-btn {
+        display: inline-block;
+    }
+    
+    .desktop-waitlist-btn {
+        display: none;
+    }
+    
     .hero-section {
         min-height: auto;
         padding: 120px 0 80px;
@@ -642,6 +660,11 @@ footer {
     
     .feature-card, .use-case-card, .why-now-card {
         padding: 1.5rem;
+    }
+    
+    /* Make the mobile waitlist button stand out more */
+    .mobile-waitlist-btn {
+        animation: pulse 2s infinite;
     }
 }
 
