@@ -1,10 +1,11 @@
-// Simple Express server to handle MailerLite API integration
+// Simple Express server to handle MailerLite API integration and serve static files
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const path = require('path');
+const fs = require('fs');
 
 // Load environment variables
 dotenv.config();
@@ -15,7 +16,26 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, './')));
+
+// Serve static files
+app.use(express.static(path.join(__dirname)));
+
+// For SPA routing - serve index.html for any non-API routes that don't match static files
+app.get('*', (req, res, next) => {
+  // Skip API routes
+  if (req.path.startsWith('/api/')) {
+    return next();
+  }
+  
+  // Skip if the file exists
+  const filePath = path.join(__dirname, req.path);
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+    return next();
+  }
+  
+  // Otherwise serve index.html
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // API endpoint to handle waitlist signups
 app.post('/api/waitlist', async (req, res) => {
