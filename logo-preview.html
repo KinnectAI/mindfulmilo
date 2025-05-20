@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Milo Logo Preview</title>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FFF8E1;
+        }
+        .logo-container {
+            text-align: center;
+        }
+        .logo {
+            width: 200px;
+            height: 200px;
+            background-color: #FFD54F;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        .logo-text {
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+            font-size: 40px;
+            color: #3E2723;
+        }
+        .tagline {
+            color: #3E2723;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="logo">
+            <div class="logo-text">MILO</div>
+        </div>
+        <div class="tagline">Calming Little Hearts and Sparking Big Imagination!</div>
+    </div>
+</body>
+</html>
